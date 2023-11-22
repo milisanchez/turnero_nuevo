@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Turnero Digital</title>
+ <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <h1><b>TURNERO DIGITAL</b></h1>
+    </header>
+    <nav class="navegacion">
+        <a href="inicio.html">Inicio</a>
+        <a href="index.html">Turnero Digital</a>
+    </nav>
+
+    <div class="container"
+    <form class="turnoForm">
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" required style="margin-left: 5px; margin-bottom: 5px;"><br>
+
+        <label for="apellido">Apellido: </label>
+        <input type="text" id="apellido" required style="margin-left: 5px; margin-bottom: 5px;"><br>
+
+        <label for="edad">Edad: </label>
+        <input type="text" id="edad" required style="margin-left: 28px; margin-bottom: 5px;"><br>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" required style="margin-left: 36px; margin-bottom: 5px;"><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required style="margin-left: 0px; margin-bottom: 5px;"><br>
+
+        <label for="email">Email: </label>
+        <input type="text" id="email" required style="margin-left: 22px; margin-bottom: 5px;"><br>
+
+        <label for="motivo">Motivo:</label>
+        <input type="text" id="motivo" required style="margin-left: 14px; margin-bottom: 5px;"><br>
+
+        <button type="button" onclick="generarTurno()">Generar Turno</button>
+    </form>
+
+    <div id="turnoGenerado" style="display: none;">
+        <h2>¡Turno Generado!</h2>
+        <p>Nombre: <span id="mostrarNombre"></span></p>
+        <p>Apellido: <span id="mostrarApellido"></span></p>
+        <p>Edad: <span id="mostrarEdad"></span></p>
+        <p>DNI: <span id="mostrarDni"></span></p>
+        <p>Teléfono: <span id="mostrarTelefono"></span></p>
+        <p>Email: <span id="mostrarEmail"></span></p>
+        <p>Motivo: <span id="mostrarMotivo"></span></p>
+        <p>Fecha del Turno: <span id="fechaTurno"></span></p>
+        <p>Acerquese a la recepción y consulte para más información. Lo esperamos!!</p>
+
+    </div>
+</div>
+
+    <script>
+        function generarTurno() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const edad = document.getElementById("edad").value;
+            const dni = document.getElementById("dni").value;
+            const telefono = document.getElementById("telefono").value;
+            const email = document.getElementById("email").value;
+            const motivo = document.getElementById("motivo").value;
+
+            const fechaTurno = new Date();
+            fechaTurno.setDate(fechaTurno.getDate() + 7); 
+
+            const dia = fechaTurno.getDate();
+            const mes = fechaTurno.getMonth() + 1;
+            const año = fechaTurno.getFullYear();
+
+            const fechaFormateada = `${dia}/${mes}/${año}`;
+
+            document.getElementById("mostrarNombre").textContent = nombre;
+            document.getElementById("mostrarApellido").textContent = apellido;
+            document.getElementById("mostrarEdad").textContent = edad;
+            document.getElementById("mostrarDni").textContent = dni;
+            document.getElementById("mostrarTelefono").textContent = telefono;
+            document.getElementById("mostrarEmail").textContent = email;
+            document.getElementById("mostrarMotivo").textContent = motivo;
+            document.getElementById("fechaTurno").textContent = fechaFormateada;
+
+            document.getElementById("turnoGenerado").style.display = "block";
+
+
+            document.getElementById("turnoForm").reset();
+        }
+    </script>
+</body>
+<footer>
+    <div class="container grid-3" id="piedepagina">
+        <div class="copyright">
+        </div>
+        <nav class="links">
+          <a href="inicio.html" class="outline">Inicio</a>
+          <a href="turnero.html" class="outline">Turnero Digital</a>
+        </nav>
+        <div id="1">
+            <p>Milagros Sanchez</p>
+            <p>Selena Ramos</p>
+            <p>Belen Beiroa</p>
+            <p>&copy; 2023 OSECAC</p>
+        </div>
+      </div>
+</footer>
+</html>
